@@ -74,11 +74,8 @@ const LandingPage = () => {
         const searchInputValue = event.target.value.toLowerCase();
         setSearchValue(event.target.value);
         setProductsStatus("PENDING");
-
         let timeoutId: NodeJS.Timeout | undefined;
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
+        if (timeoutId) clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
             const filteredProductsData = products.filter(eachProduct => eachProduct.title.toLowerCase().includes(searchInputValue));
             if (filteredProductsData.length === 0) setProductsStatus("FAILURE");
